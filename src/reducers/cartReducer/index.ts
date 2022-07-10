@@ -6,8 +6,17 @@ import { ActionTypes, CartState, ActionReducerProps } from './types'
 export function cartReducer(state: CartState, { type, payload }: ActionReducerProps) {
   switch (type) {
     case ActionTypes.ADD_NEW_PRODUCT: {
+      const productIndex = state.cart.findIndex(({ id }) => id === payload!.newProduct.id)
+
+      if (productIndex < 0) {
+        return produce(state, (draft) => {
+          draft.cart.push({ ...payload!.newProduct, quantity: 1 })
+        })
+      }
+      return state
+
       return produce(state, (draft) => {
-        draft.cart.push({ ...payload!.newProduct, quantity: 1 })
+        draft.cart[productIndex].quantity += 1
       })
     }
 

@@ -1,13 +1,21 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import styled, { css } from 'styled-components'
 
-export const Container = styled.div`
+export const HeaderWrapper = styled.div`
+  ${({ theme: { colors } }) => css`
+    background: ${colors.background};
+    position: sticky;
+    top: 0;
+    width: 100%;
+  `}
+`
+
+export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
   max-width: 70rem;
-  position: sticky;
   width: 100%;
   margin: 0 auto;
 `

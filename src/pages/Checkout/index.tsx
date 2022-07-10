@@ -21,7 +21,6 @@ export function Checkout() {
   const {
     handleSubmit,
     watch,
-    reset,
     formState: { errors },
   } = addressForm
 

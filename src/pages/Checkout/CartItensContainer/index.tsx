@@ -1,7 +1,3 @@
-import { useState } from 'react'
-
-import { NavLink } from 'react-router-dom'
-
 import { deliveryFee } from '../../../constants'
 import { useCart, useCheckout } from '../../../contexts'
 import { formatCurrencyPTBR } from '../../../utils/currency/formatPTBR'

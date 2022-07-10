@@ -24,6 +24,7 @@ ${({ theme: { colors } }) => css`
     -moz-osx-font-smoothing: grayscale;
     background: ${colors.background};
     color: ${colors['base-title']};
+    position: relative;
   }
 
   body,
