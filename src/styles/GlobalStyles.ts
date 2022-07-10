@@ -1,0 +1,71 @@
+import { createGlobalStyle, css } from 'styled-components'
+
+export default createGlobalStyle`
+${({ theme: { colors } }) => css`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :focus {
+    outline: 0;
+  }
+
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    height: 100vh;
+    width: 100vw;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: ${colors.background};
+    color: ${colors['base-title']};
+  }
+
+  body,
+  input,
+  textarea,
+  button {
+    font: 400 1rem 'Roboto', sans-serif, -apple-system;
+    line-height: 1.25;
+    border: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong {
+    font-weight: 700;
+  }
+
+  a {
+    text-decoration: none;
+    background: none;
+    font-weight: 700;
+    cursor: pointer;
+    border: 0;
+    transition: 180ms ease-in-out;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+  }
+`}
+`
