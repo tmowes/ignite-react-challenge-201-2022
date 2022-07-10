@@ -17,7 +17,7 @@ export const Title = styled.span`
   `}
 `
 
-export const SubTitle = styled.a`
+export const SubTitle = styled.span`
   ${({ theme: { colors } }) => css`
     font-weight: 400;
     color: ${colors['purple-dark']};

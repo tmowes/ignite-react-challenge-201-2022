@@ -1,7 +1,9 @@
+import { useState } from 'react'
+
 import { NavLink } from 'react-router-dom'
 
 import { deliveryFee } from '../../../constants'
-import { useCart } from '../../../contexts'
+import { useCart, useCheckout } from '../../../contexts'
 import { formatCurrencyPTBR } from '../../../utils/currency/formatPTBR'
 import { CartProductCard } from './CartProductCard'
 import { EmptyCart } from './EmptyCart'
@@ -9,6 +11,7 @@ import * as S from './styles'
 
 export function CartItensContainer() {
   const { cart } = useCart()
+  const { selectedPayMethod } = useCheckout()
 
   const cartIsEmpty = cart.length <= 0
 
@@ -44,9 +47,9 @@ export function CartItensContainer() {
           <S.SumTotalText>{formatCurrencyPTBR(cartTotalProducts + deliveryFee)}</S.SumTotalText>
         </S.Row>
       </S.TotalContainer>
-      <NavLink to="/checkout/success">
-        <S.ConfirmCheckout>confirmar pedido</S.ConfirmCheckout>
-      </NavLink>
+      <S.ConfirmCheckout type="submit" disabled={cartIsEmpty || !selectedPayMethod}>
+        confirmar pedido
+      </S.ConfirmCheckout>
     </S.CartItemsContainer>
   )
 }

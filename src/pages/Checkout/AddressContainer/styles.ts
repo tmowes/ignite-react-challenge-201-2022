@@ -78,4 +78,5 @@ export const AddressInput = styled.input<CustomInputProps>`
 
 export const UFInput = styled(AddressInput)`
   width: 3.75rem;
+  text-transform: uppercase;
 `
