@@ -1,6 +1,5 @@
+import { Product } from '../../../../contexts/CartProvider/types'
+
 export type CartProductCardProps = {
-  id: string
-  name: string
-  image: string
-  price: number
+  product: Product
 }

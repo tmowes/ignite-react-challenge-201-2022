@@ -1,11 +1,16 @@
 import { ShoppingCart } from 'phosphor-react'
 
 import { QuantitySelect } from '../../../../components/QuantitySelect'
+import { useCart } from '../../../../contexts'
 import * as S from './styles'
 import { ProductCardProps } from './types'
 
 export function ProductCard(props: ProductCardProps) {
-  const { name, description, price, tags, image } = props
+  const { product, onAddProduct } = props
+  const { id, name, description, price, tags, image } = product
+  const { updateProductAmount, cart } = useCart()
+  const quantity = cart.find((c) => c.id === id)?.quantity ?? 0
+
   return (
     <S.Container>
       <S.Image src={`/src/assets/coffees/${image}`} alt={name} />
@@ -24,8 +29,12 @@ export function ProductCard(props: ProductCardProps) {
           {price.toFixed(2).replace('.', ',')}
         </S.Price>
         <S.CardAction>
-          <QuantitySelect quantity={0} />
-          <S.AddToCart>
+          <QuantitySelect
+            quantity={quantity}
+            onIncreaseQuantity={() => updateProductAmount(product, 1)}
+            onDecreaseQuantity={() => updateProductAmount(product, -1)}
+          />
+          <S.AddToCart onClick={onAddProduct}>
             <ShoppingCart size={24} weight="fill" />
           </S.AddToCart>
         </S.CardAction>

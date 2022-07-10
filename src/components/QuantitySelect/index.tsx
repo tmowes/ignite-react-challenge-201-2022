@@ -4,14 +4,14 @@ import * as S from './styles'
 import { QuantitySelectProps } from './types'
 
 export function QuantitySelect(props: QuantitySelectProps) {
-  const { quantity } = props
+  const { quantity, onDecreaseQuantity, onIncreaseQuantity } = props
   return (
     <S.QuantitySelectCard>
-      <S.SubtractButton>
+      <S.SubtractButton disabled={quantity <= 0} onClick={onDecreaseQuantity}>
         <Minus size={16} weight="bold" />
       </S.SubtractButton>
       {quantity}
-      <S.AddButton>
+      <S.AddButton onClick={onIncreaseQuantity}>
         <Plus size={16} weight="bold" />
       </S.AddButton>
     </S.QuantitySelectCard>

@@ -2,11 +2,12 @@ import { MapPin, ShoppingCart } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
 
 import logoImg from '../../assets/logo.svg'
+import { useCart } from '../../contexts'
 import * as S from './styles'
 
-const cartQuantity = 3
-
 export function Header() {
+  const { cart } = useCart()
+  const cartQuantity = cart.reduce((acc, { quantity }) => (quantity ? acc + quantity : acc), 0)
   return (
     <S.Container>
       <NavLink to="/" title="Home">

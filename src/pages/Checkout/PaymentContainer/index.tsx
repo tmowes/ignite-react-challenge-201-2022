@@ -20,12 +20,12 @@ export function PaymentContainer() {
           <S.PaymentOptionTitle>cartão de crédito</S.PaymentOptionTitle>
         </S.PaymentOption>
         <S.PaymentOption>
-          <Money size={22} />
-          <S.PaymentOptionTitle>dinheiro</S.PaymentOptionTitle>
-        </S.PaymentOption>
-        <S.PaymentOption>
           <Bank size={22} />
           <S.PaymentOptionTitle>cartão de débito</S.PaymentOptionTitle>
+        </S.PaymentOption>
+        <S.PaymentOption>
+          <Money size={22} />
+          <S.PaymentOptionTitle>dinheiro</S.PaymentOptionTitle>
         </S.PaymentOption>
       </S.PaymentOptions>
     </S.PaymentContainer>

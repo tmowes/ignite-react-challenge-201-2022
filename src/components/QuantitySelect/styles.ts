@@ -33,10 +33,15 @@ const QuantityButton = styled.button`
 
 export const SubtractButton = styled(QuantityButton)`
   ${({ theme: { colors } }) => css`
-    &:hover {
+    &:not(:disabled):hover {
       border-left: 2px solid ${colors['base-label']};
       border-bottom: 2px solid ${colors['base-label']};
       border-bottom-left-radius: 6px;
+    }
+    &:disabled {
+      background-color: ${colors['base-button']};
+      color: ${colors['base-label']};
+      cursor: not-allowed;
     }
   `}
 `

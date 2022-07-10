@@ -1,3 +1,5 @@
+export const deliveryFee = 7.0
+
 export const products = [
   {
     id: '1',
